@@ -610,7 +610,7 @@ def main() -> int:
     parser.add_argument(
         "--fix-language-order",
         action="store_true",
-        help="Diagnostic: reorder the localization language list.",
+        help="Diagnostic: preview a localization language list reorder.",
     )
     parser.add_argument(
         "--fix-all-language-sources",
@@ -648,6 +648,14 @@ def main() -> int:
         help="Check only; do not write changes.",
     )
     args = parser.parse_args()
+
+    print("Inspect mode (read-only). No assets will be modified.")
+    if args.fix_language_order and not args.dry_run:
+        print(
+            "ERROR: inspect_assets.py is read-only. "
+            "Use --dry-run with --fix-language-order to preview changes."
+        )
+        return 2
 
     if args.list:
         libraries = _discover_library_paths()

@@ -124,8 +124,7 @@ Notes:
 
 ## Inspection tool (inspect_assets.py)
 
-Use this tool for diagnostics and analysis. It does not modify files unless you use the
-language-order fix option.
+Use this tool for diagnostics and analysis. It is read-only and does not modify files.
 
 ### List language sources
 
@@ -163,22 +162,22 @@ Use `--search-all-keys` to include keys without `/`.
 
 ---
 
-### Diagnostic: fix language order
+### Diagnostic: fix language order (read-only preview)
 
-Use only if you know the asset has an incorrect language column order.
+Use only if you know the asset has an incorrect language column order. The inspect tool
+does not write changes; it only reports what would be updated.
 
 ```bash
 python3 inspect_assets.py --fix-language-order --dry-run
 ```
 
-Fix a specific source:
+Preview a specific source:
 
 ```bash
 python3 inspect_assets.py --fix-language-order --language-source-index 0 --dry-run
-python3 inspect_assets.py --fix-language-order --language-source-index 0
 ```
 
-Fix all matching sources:
+Preview all matching sources:
 
 ```bash
 python3 inspect_assets.py --fix-language-order --fix-all-language-sources --dry-run
@@ -187,7 +186,7 @@ python3 inspect_assets.py --fix-language-order --fix-all-language-sources --dry-
 Optional: custom order (comma-separated codes):
 
 ```bash
-python3 inspect_assets.py --fix-language-order --language-order "en,es,fr,uk,ru,de,pt,zh-CN,zh-TW,ja,ko,it,vi,pl"
+python3 inspect_assets.py --fix-language-order --language-order "en,es,fr,uk,ru,de,pt,zh-CN,zh-TW,ja,ko,it,vi,pl" --dry-run
 ```
 
 ---

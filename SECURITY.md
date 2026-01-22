@@ -5,7 +5,7 @@ This repository includes two scripts:
 * `patch_staff_only.py`: applies **deterministic, byte-length preserved** changes to
   `resources.assets` based on `key_map.json`.
 * `inspect_assets.py`: read-only inspection helpers (dump/search/list), with an optional
-  diagnostic language-order fix that also preserves file size and creates a backup.
+  diagnostic language-order preview.
 
 Both tools:
 
@@ -28,6 +28,15 @@ If you have security concerns:
 
 A **timestamped backup** of `resources.assets` is created automatically, allowing easy
 rollback at any time.
+
+---
+
+## Out of scope
+
+* no DRM bypass
+* no code extraction
+* no runtime hooks
+* no gameplay changes
 
 ---
 
