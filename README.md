@@ -4,7 +4,7 @@
 
 This repository provides a **small, optional localization override patch** for *Waterpark Simulator*.
 
-The patch allows players to **replace a specific in-game localized text string** used on certain staff-only objects with a neutral alternative (e.g. `STAFF ONLY`), independent of the game’s active language or localization fallback.
+The patch allows players to **replace one or more in-game localized text strings** used on certain staff-only objects with a neutral alternative (e.g. `STAFF ONLY`), independent of the game’s active language or localization fallback.
 
 No gameplay mechanics, assets, models, or textures are modified.
 
@@ -12,9 +12,13 @@ No gameplay mechanics, assets, models, or textures are modified.
 
 ## What this patch does
 
-* Overrides **one localized string entry** in the game’s localization data
-* The patch operates on the game’s localization asset (resources.assets) by replacing a single UTF-8 string with equal byte length.
+* Overrides **one or more localized string entries** in the game’s localization data
+* The patch operates on the game’s localization asset (resources.assets) by replacing UTF-8 strings with equal byte length.
 * Affects **signage text only**
+* Supports an optional mapping file to apply multiple replacements in one run
+* Can optionally fix the localization language order when the UI mapping is wrong
+* Includes inspection helpers to list language sources and dump keys
+* Supports per-key language fixes via a JSON key map
 * Keeps the change:
 
   * minimal

@@ -99,13 +99,136 @@ Notes:
 
 ---
 
+### Mapping file (multiple replacements)
+
+Create a JSON file that lists the replacements you want to apply:
+
+```json
+{
+  "replacements": [
+    { "old": "OLD_TEXT_1", "new": "NEW_TEXT_1", "label": "optional label" },
+    { "old": "OLD_TEXT_2", "new": "NEW_TEXT_2" }
+  ]
+}
+```
+
+Run:
+
+```bash
+python3 patch_staff_only.py --map-file ./replacements.json
+```
+
+Notes:
+
+* `--text` is ignored when `--map-file` is provided.
+* Each replacement text must be **equal to or shorter** than the original string.
+* Use `--allow-multiple` if a target string occurs more than once.
+
+---
+
+### Fix language order (locale mapping)
+
+Use this if the in-game language selection maps to the wrong text column.
+
+List detected language sources:
+
+```bash
+python3 patch_staff_only.py --list-language-sources
+```
+
+Fix a specific source:
+
+```bash
+python3 patch_staff_only.py --fix-language-order --language-source-index 0 --dry-run
+python3 patch_staff_only.py --fix-language-order --language-source-index 0
+```
+
+Fix all matching sources:
+
+```bash
+python3 patch_staff_only.py --fix-language-order --fix-all-language-sources --dry-run
+```
+
+```bash
+python3 patch_staff_only.py --fix-language-order --dry-run
+```
+
+Apply the change:
+
+```bash
+python3 patch_staff_only.py --fix-language-order
+```
+
+Optional: custom order (comma-separated codes):
+
+```bash
+python3 patch_staff_only.py --fix-language-order --language-order "en,es,fr,uk,ru,de,pt,zh-CN,zh-TW,ja,ko,it,vi,pl"
+```
+
+---
+
+### Dump a localization key
+
+```bash
+python3 patch_staff_only.py --dump-key "Attractions/StaffOnlySign"
+```
+
+If multiple language sources exist, add `--language-source-index`.
+
+---
+
+### Search for a translation or key
+
+Find keys by a text fragment:
+
+```bash
+python3 patch_staff_only.py --search-text "container" --search-ignore-case
+```
+
+Find keys by key name:
+
+```bash
+python3 patch_staff_only.py --search-key "Trash" --search-ignore-case
+```
+
+Use `--search-all-keys` to include keys without `/`.
+
+---
+
+### Apply per-key language fixes
+
+Create a JSON file that maps keys to language codes:
+
+```json
+{
+  "Attractions/StaffOnlySign": {
+    "es": "SOLO PERSONAL",
+    "fr": "PERSONNEL UNIQUEMENT",
+    "de": "NUR PERSONAL"
+  }
+}
+```
+
+Run:
+
+```bash
+python3 patch_staff_only.py --key-map ./key_map.json --dry-run
+python3 patch_staff_only.py --key-map ./key_map.json
+```
+
+Notes:
+
+* Replacement text must be **equal to or shorter** than the existing string for that language.
+
+---
+
 ## Notes
 
 * A **timestamped backup** of `resources.assets` is created automatically.
 * Steam updates or **"Verify integrity of game files"** may overwrite patched files.
 
   * If this happens, simply re-run the patcher.
-* This patch modifies **only one localized string** inside the localization asset.
+* This patch modifies **one or more localized strings** inside the localization asset.
 
 ---
 

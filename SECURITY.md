@@ -1,6 +1,6 @@
 # Security
 
-This patcher performs a **single, deterministic modification** to the game’s localization asset (`resources.assets`) by replacing **one UTF-8 string with an equal byte-length string**.
+This patcher performs **deterministic modifications** to the game’s localization asset (`resources.assets`) by replacing **one or more UTF-8 strings with equal byte-length strings** and, optionally, reordering the localization language list without changing file size.
 
 It:
 
