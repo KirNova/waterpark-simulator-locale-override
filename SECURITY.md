@@ -1,15 +1,20 @@
 # Security
 
-This patcher performs **deterministic modifications** to the game’s localization asset (`resources.assets`) by replacing **one or more UTF-8 strings with equal byte-length strings** and, optionally, reordering the localization language list without changing file size.
+This repository includes two scripts:
 
-It:
+* `patch_staff_only.py`: applies **deterministic, byte-length preserved** changes to
+  `resources.assets` based on `key_map.json`.
+* `inspect_assets.py`: read-only inspection helpers (dump/search/list), with an optional
+  diagnostic language-order fix that also preserves file size and creates a backup.
 
-* does **not** install software
-* does **not** run background services
-* does **not** access the network
-* does **not** collect or transmit data
+Both tools:
 
-The script operates entirely on local files.
+* do **not** install software
+* do **not** run background services
+* do **not** access the network
+* do **not** collect or transmit data
+
+The scripts operate entirely on local files.
 
 ---
 
@@ -17,11 +22,12 @@ The script operates entirely on local files.
 
 If you have security concerns:
 
-* review the source code in `patch_staff_only.py` before execution
-* run the script **offline**
-* verify the dry-run mode before applying changes
+* review the source code in `patch_staff_only.py` and `inspect_assets.py` before execution
+* run the scripts **offline**
+* verify the dry-run mode before applying any changes
 
-A **timestamped backup** of `resources.assets` is created automatically, allowing easy rollback at any time.
+A **timestamped backup** of `resources.assets` is created automatically, allowing easy
+rollback at any time.
 
 ---
 

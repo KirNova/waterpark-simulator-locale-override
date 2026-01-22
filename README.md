@@ -4,26 +4,29 @@
 
 This repository provides a **small, optional localization override patch** for *Waterpark Simulator*.
 
-The patch allows players to **replace one or more in-game localized text strings** used on certain staff-only objects with a neutral alternative (e.g. `STAFF ONLY`), independent of the game’s active language or localization fallback.
+The patch applies **per-key localization overrides** (via `key_map.json`) to fix specific signage text, independent of the game’s active language or localization fallback.
 
 No gameplay mechanics, assets, models, or textures are modified.
 
 ---
 
+## Tools
+
+* `patch_staff_only.py`: end-user patcher that applies `key_map.json` (byte-length preserved)
+* `inspect_assets.py`: developer/diagnostic tool for dump/search/list operations (optional language-order fix)
+
+---
+
 ## What this patch does
 
-* Overrides **one or more localized string entries** in the game’s localization data
-* The patch operates on the game’s localization asset (resources.assets) by replacing UTF-8 strings with equal byte length.
-* Affects **signage text only**
-* Supports an optional mapping file to apply multiple replacements in one run
-* Can optionally fix the localization language order when the UI mapping is wrong
-* Includes inspection helpers to list language sources and dump keys
-* Supports per-key language fixes via a JSON key map
+* Overrides **specific localized string entries** listed in `key_map.json`
+* Preserves **byte length** for in-place, binary-safe edits
+* Affects **signage text only** (current map)
 * Keeps the change:
 
   * minimal
   * reversible
-  * binary-safe (byte-length preserved)
+  * deterministic
 * Does **not** modify:
 
   * gameplay
@@ -45,7 +48,7 @@ No gameplay mechanics, assets, models, or textures are modified.
 
 ## Why this exists
 
-Some players prefer consistent or neutral signage text regardless of localization or fallback behavior.
+Some players prefer consistent or corrected signage text regardless of localization or fallback behavior.
 
 This patch exists solely to provide **player choice** in how that specific text is displayed.
 
