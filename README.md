@@ -15,6 +15,12 @@ No gameplay mechanics, assets, models, or textures are modified.
 * `patch_staff_only.py`: end-user patcher that applies `key_map.json` (byte-length preserved)
 * `inspect_assets.py`: developer/diagnostic tool for dump/search/list operations (optional language-order fix)
 
+Quick inspect example:
+
+```bash
+python3 inspect_assets.py --dump-key "Attractions/StaffOnlySign"
+```
+
 ---
 
 ## What this patch does

@@ -2,3 +2,7 @@ __pycache__/
 *.pyc
 .DS_Store
 *.kate-swp
+.venv/
+.pytest_cache/
+*.swp
+*~
