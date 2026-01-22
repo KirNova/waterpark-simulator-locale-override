@@ -26,6 +26,28 @@ python patch_staff_only.py
 
 ---
 
+## One-click launchers (optional)
+
+### Linux
+
+```bash
+./run.sh
+```
+
+If needed:
+```bash
+chmod +x run.sh
+```
+
+### Windows
+
+Double-click `run.bat`, or run:
+```powershell
+run.bat
+```
+
+---
+
 ## Manual game path (optional)
 
 If automatic detection fails, explicitly pass the game directory.
