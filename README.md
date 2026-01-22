@@ -51,7 +51,7 @@ This patch exists solely to provide **player choice** in how that specific text 
 
 * Requires a **legitimate copy** of *Waterpark Simulator*
 * Applies a small binary-safe modification to the localization asset
-* Instructions are provided in the `/docs` folder
+* Instructions are provided in `/docs/INSTALL.md`
 
 > Always back up original files before applying any patch.
 
